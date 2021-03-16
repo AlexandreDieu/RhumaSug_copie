@@ -2,14 +2,12 @@
 class Router
 {
     private array $routes;
-    private string $pagesDirectory;
-    public function __construct(array $routes, string $pagesDirectory)
+    public function __construct(array $routes)
     {
         $this->routes = $routes;
-        $this->pagesDirectory = $pagesDirectory;
     }
 
-    public function callContent()
+    public function getControllerMethod()
     {
         if (array_key_exists($_GET['page'], $this->routes)){
             return $this->routes[$_GET['page']];
